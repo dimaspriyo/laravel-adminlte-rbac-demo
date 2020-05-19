@@ -15,14 +15,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login.form');
+    return redirect()->route('login');
 });
-Route::get('/login', 'HomeController@login')->name('login.form');
+Route::get('/login', 'HomeController@login')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@home')->name('home');
 
+Route::group(['middleware' => ['auth','user.management'], 'prefix' => 'usermanagement'], function () {
 
+    Route::get('/create', 'UserManagementController@create')->name('user.create');
+    Route::get('/assign', 'UserManagementController@assign')->name('user.assign');
+    Route::get('/list', 'UserManagementController@list')->name('user.list');
 
-//Auth::routes();
+});
+
+Route::group(['middleware' => ['auth','report'], 'prefix' => 'report'], function () {
+
+    Route::get('/user', 'ReportController@create')->name('report.user');
+    Route::get('/inventory', 'ReportController@list')->name('report.inventory');
+
+});
+
+Route::group(['middleware' => ['auth','inventory'], 'prefix' => 'inventory'], function () {
+
+    Route::get('/add', 'InventoryController@create')->name('inventory.add');
+    Route::get('/list', 'InventoryController@list')->name('inventory.list');
+
+});
+
