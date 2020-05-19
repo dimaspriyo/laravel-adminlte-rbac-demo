@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('adminlte/layout');
+    return redirect()->route('login.form');
 });
+Route::get('/login', 'HomeController@login')->name('login.form');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout');
+
+Route::get('/home', 'HomeController@home')->name('home');
+
+
+
+//Auth::routes();
