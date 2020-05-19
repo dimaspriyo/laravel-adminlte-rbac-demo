@@ -30,7 +30,9 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
       <form action="{{ url('/login') }} " method="post">
         @csrf
         <div class="input-group mb-3">
@@ -41,9 +43,9 @@
             </div>
             @error('email')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ error('email') }}</strong>
+                <strong>{{ $message }}</strong>
             </span>
-        @enderror
+          @enderror
           </div>
         </div>
         <div class="input-group mb-3">
