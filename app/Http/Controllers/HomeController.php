@@ -32,6 +32,6 @@ class HomeController extends Controller
             return redirect()->route('login');
         }
 
-        return view('adminlte/layout');
+        return view('adminlte/pages/home');
     }
 }
