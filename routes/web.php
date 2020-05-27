@@ -40,8 +40,11 @@ Route::group(['middleware' => ['auth','report'], 'prefix' => 'report'], function
 
 Route::group(['middleware' => ['auth','inventory'], 'prefix' => 'inventory'], function () {
 
-    Route::get('/add', 'InventoryController@create')->name('inventory.add');
+    Route::get('/add', 'InventoryController@create')->name('inventory.create');
+    Route::post('/add', 'InventoryController@store')->name('inventory.store');
     Route::get('/list', 'InventoryController@list')->name('inventory.list');
+    Route::put('/update', 'InventoryController@update')->name('inventory.update');
+    Route::delete('/delete', 'InventoryController@delete')->name('inventory.delete');
 
 });
 
