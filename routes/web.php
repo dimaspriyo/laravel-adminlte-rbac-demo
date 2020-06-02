@@ -43,7 +43,8 @@ Route::group(['middleware' => ['auth','inventory'], 'prefix' => 'inventory'], fu
     Route::get('/add', 'InventoryController@create')->name('inventory.create');
     Route::post('/add', 'InventoryController@store')->name('inventory.store');
     Route::get('/list', 'InventoryController@list')->name('inventory.list');
-    Route::put('/update', 'InventoryController@update')->name('inventory.update');
+    Route::get('/update', 'InventoryController@update')->name('inventory.update.form');
+    Route::put('/update', 'InventoryController@updateAction')->name('inventory.update');
     Route::delete('/delete', 'InventoryController@delete')->name('inventory.delete');
 
 });

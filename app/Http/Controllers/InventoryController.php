@@ -39,13 +39,40 @@ class InventoryController extends Controller
         return redirect()->route('inventory.list');
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-        # code...
+        $inventory = Inventory::find($request->id);
+        $inventory->delete();
+
+        $request->session()->flash('success','Delete Data Successful');
+        return redirect()->route('inventory.list');
     }
 
-    public function update()
+    public function update(Request $request)
     {
-        # code...
+       $id = $request->get('id');
+       $inventory = Inventory::find($id);
+
+       return view('adminlte/pages/inventory/update',['data' => $inventory]);
     }
+
+    public function updateAction(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'quantity' => 'required|integer',
+            'description' => 'required'
+        ]);
+
+        $inventory = Inventory::find($request->id);
+        $inventory->name = $request->name;
+        $inventory->quantity = $request->quantity;
+        $inventory->description = $request->description;
+        $inventory->save();
+
+
+        $request->session()->flash('success','Update Data Successful');
+        return redirect()->route('inventory.list');
+    }
+
 }
