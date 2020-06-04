@@ -19,7 +19,6 @@ class PermissionSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         Permission::create(['name' => 'user.create']);
-        Permission::create(['name' => 'user.assign']);
         Permission::create(['name' => 'user.list']);
 
         Permission::create(['name' => 'inventory.add']);
@@ -35,7 +34,6 @@ class PermissionSeeder extends Seeder
         $role1->givePermissionTo('inventory.list');
         $role1->givePermissionTo('user.list');
         $role1->givePermissionTo('user.create');
-        $role1->givePermissionTo('user.assign');
         $role1->givePermissionTo('report.user');
         $role1->givePermissionTo('report.inventory');
 
@@ -46,7 +44,6 @@ class PermissionSeeder extends Seeder
         $role2->givePermissionTo('inventory.list');
         $role2->givePermissionTo('user.list');
         $role1->givePermissionTo('user.create');
-        $role1->givePermissionTo('user.assign');
 
         //Role for Staff
         $role3 = Role::create(['name' => 'staff']);

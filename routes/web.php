@@ -26,7 +26,10 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::group(['middleware' => ['auth','user.management'], 'prefix' => 'usermanagement'], function () {
 
     Route::get('/create', 'UserManagementController@create')->name('user.create');
-    Route::get('/assign', 'UserManagementController@assign')->name('user.assign');
+    Route::post('/create', 'UserManagementController@store')->name('user.store');
+    Route::get('/update', 'UserManagementController@update')->name('user.update.form');
+    Route::put('/update', 'UserManagementController@updateAction')->name('user.update');
+    Route::put('/delete', 'UserManagementController@delete')->name('user.delete');
     Route::get('/list', 'UserManagementController@list')->name('user.list');
 
 });
@@ -43,8 +46,6 @@ Route::group(['middleware' => ['auth','inventory'], 'prefix' => 'inventory'], fu
     Route::get('/add', 'InventoryController@create')->name('inventory.create');
     Route::post('/add', 'InventoryController@store')->name('inventory.store');
     Route::get('/list', 'InventoryController@list')->name('inventory.list');
-    Route::get('/update', 'InventoryController@update')->name('inventory.update.form');
-    Route::put('/update', 'InventoryController@updateAction')->name('inventory.update');
     Route::delete('/delete', 'InventoryController@delete')->name('inventory.delete');
 
 });

@@ -55,7 +55,6 @@
                                 <ul>
                                     <li>List</li>
                                     <li>Create</li>
-                                    <li>Assign</li>
                                 </ul>
                             </li>
                             <li>

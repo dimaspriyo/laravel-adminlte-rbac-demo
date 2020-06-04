@@ -13,19 +13,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                <a href="{{ route('user.create') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Create User</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Assign User Role</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
+                <a href="{{ route('user.list') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>List User</p>
                   </a>
