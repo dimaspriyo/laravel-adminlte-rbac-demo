@@ -18,4 +18,4 @@ Using AdminLTE and laravel-permission by spatie
   **php artisan db:seed**
  
  ## Screenshoots
- ![Index](__screenshoot/login.png "Create Index ")
+ ![Index](__screenshoots/login.PNG "Login")
