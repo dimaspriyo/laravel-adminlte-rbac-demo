@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::get('/login', 'HomeController@login')->name('login');
 Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@home')->name('home');
 
@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth','user.management'], 'prefix' => 'usermanag
     Route::post('/create', 'UserManagementController@store')->name('user.store');
     Route::get('/update', 'UserManagementController@update')->name('user.update.form');
     Route::put('/update', 'UserManagementController@updateAction')->name('user.update');
-    Route::put('/delete', 'UserManagementController@delete')->name('user.delete');
+    Route::delete('/delete', 'UserManagementController@delete')->name('user.delete');
     Route::get('/list', 'UserManagementController@list')->name('user.list');
 
 });

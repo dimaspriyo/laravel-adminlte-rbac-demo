@@ -34,13 +34,20 @@ class UserManagementController extends Controller
         }
 
         $request->session()->flash('success','Insert User Successful');
-        return redirect()->route('user.create');
+        return redirect()->route('user.list');
 
     }
 
     public function delete(Request $request)
     {
-        
+        $user = User::find($request->id);
+        if($user->delete()){
+            $request->session()->flash('success','Delete User Successful');
+            return redirect()->route('user.list');
+        }else{
+            $request->session()->flash('failed','Delete User Failed');
+            return redirect()->route('user.list');
+        }
     }
 
     public function list()
