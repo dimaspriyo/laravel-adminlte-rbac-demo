@@ -36,8 +36,8 @@ Route::group(['middleware' => ['auth','user.management'], 'prefix' => 'usermanag
 
 Route::group(['middleware' => ['auth','report'], 'prefix' => 'report'], function () {
 
-    Route::get('/user', 'ReportController@create')->name('report.user');
-    Route::get('/inventory', 'ReportController@list')->name('report.inventory');
+    Route::get('/user', 'ReportController@user')->name('report.user');
+    Route::get('/inventory', 'ReportController@inventory')->name('report.inventory');
 
 });
 
