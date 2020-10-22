@@ -10,7 +10,7 @@ Using AdminLTE and laravel-permission by spatie
 
 ## Getting Started
 
- 1. Clone [https://github.com/dimaspriyo/go-elk-logging](https://github.com/dimaspriyo/go-elk-logging)
+ 1. Clone [https://github.com/dimaspriyo/laravel-adminlte-rbac-demo](https://github.com/dimaspriyo/laravel-adminlte-rbac-demo)
  2. Run **composer install**
  3. Migrate database
  **php artisan migrate**
